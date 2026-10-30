@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero Banner Options</title>
+<style>
+  :root { --sans: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; --serif: Georgia, "Times New Roman", serif; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #0f1115; font-family: var(--sans); color: #e8eaf0; padding: 40px; }
+  h1 { font-size: 28px; margin-bottom: 6px; }
+  .sub { color: #aab0bd; margin-bottom: 36px; }
+  .opt { margin-bottom: 48px; }
+  .opt h2 { font-size: 18px; margin-bottom: 4px; }
+  .opt > p { color: #aab0bd; font-size: 14px; margin-bottom: 12px; }
+  .scale { width: 100%; max-width: 1920px; overflow: hidden; }
+  .banner { position: relative; width: 1920px; height: 600px; overflow: hidden; transform-origin: top left; }
+  .inner { position: absolute; inset: 0 192px; display: flex; align-items: center; justify-content: space-between; } /* safe zone: central 80% */
+  .copy { max-width: 1000px; }
+  .cta { display: inline-flex; align-items: center; height: 60px; padding: 0 36px; border-radius: 999px; font-weight: 700; font-size: 22px; text-decoration: none; }
+  .logo { position: absolute; top: 48px; left: 192px; font-weight: 800; font-size: 26px; letter-spacing: .02em; }
+
+  /* 1 Minimalist */
+  .b1 { background: #f7f5f0; color: #14161a; }
+  .b1 .logo { color: #14161a; }
+  .b1 h1 { font-size: 84px; line-height: 1.04; font-weight: 600; letter-spacing: -.02em; margin: 0 0 20px; }
+  .b1 p.lead { font-size: 28px; color: #4a4f59; max-width: 720px; line-height: 1.4; }
+  .b1 .cta { background: #14161a; color: #fff; }
+  .b1 .dot { width: 220px; height: 220px; border-radius: 50%; background: #ff5a36; margin-right: 40px; }
+  .b1 .inner { align-items: center; }
+  .b1 .right { display: flex; flex-direction: column; align-items: flex-end; gap: 70px; justify-content: space-between; height: 340px; }
+
+  /* 2 Gradient */
+  .b2 { background: radial-gradient(900px 600px at 15% 20%, #7c3aed 0%, transparent 60%), radial-gradient(900px 700px at 90% 90%, #06b6d4 0%, transparent 60%), radial-gradient(700px 500px at 60% 0%, #ec4899 0%, transparent 60%), #1e1b4b; color: #fff; }
+  .b2 .logo { color: #fff; }
+  .b2 h1 { font-size: 88px; line-height: 1.02; font-weight: 800; letter-spacing: -.03em; margin-bottom: 20px; text-shadow: 0 2px 24px rgba(20,10,60,.35); }
+  .b2 p.lead { font-size: 28px; line-height: 1.4; max-width: 700px; color: #fff; text-shadow: 0 1px 12px rgba(20,10,60,.4); }
+  .b2 .cta { background: #fff; color: #1e1b4b; box-shadow: 0 10px 30px rgba(20,10,60,.35); }
+  .b2 .inner { align-items: center; }
+  .b2 .cta-wrap { align-self: flex-end; margin-bottom: 90px; }
+
+  /* 3 Bold type */
+  .b3 { background: #ffe14d; color: #111; }
+  .b3 .logo { color: #111; }
+  .b3 .big { font-size: 225px; line-height: .86; font-weight: 900; letter-spacing: -.06em; text-transform: uppercase; }
+  .b3 .big span { display: block; }
+  .b3 .big .o { -webkit-text-stroke: 5px #111; color: transparent; }
+  .b3 p.lead { font-size: 28px; font-weight: 600; max-width: 380px; line-height: 1.35; margin-bottom: 28px; }
+  .b3 .cta { background: #111; color: #ffe14d; }
+  .b3 .inner { align-items: center; }
+  .b3 .side { align-self: flex-end; margin-bottom: 70px; }
+</style>
+</head>
+<body>
+<h1>Hero Banner Options</h1>
+<p class="sub">1920 × 600 · placeholder brand “Orbitly” · three art directions</p>
+
+<section class="opt" id="o1">
+  <h2>1 · Minimalist</h2>
+  <p>Warm off-white, one accent, generous space. Calm and credible for SaaS.</p>
+  <div class="scale"><div class="banner b1" id="b1">
+    <div class="logo">Orbitly</div>
+    <div class="inner">
+      <div class="copy">
+        <h1>Plan less.<br>Ship more.</h1>
+        <p class="lead">One calm workspace for your team's projects, docs and deadlines.</p>
+      </div>
+      <div class="right"><div class="dot"></div><a class="cta">Start free</a></div>
+    </div>
+  </div></div>
+</section>
+
+<section class="opt" id="o2">
+  <h2>2 · Gradient</h2>
+  <p>Mesh gradient of violet, pink and cyan with white type. Modern and energetic.</p>
+  <div class="scale"><div class="banner b2" id="b2">
+    <div class="logo">Orbitly</div>
+    <div class="inner">
+      <div class="copy">
+        <h1>Work that moves at your speed.</h1>
+        <p class="lead">Automate the busywork and keep every team in sync.</p>
+      </div>
+      <div class="cta-wrap"><a class="cta">Try it free</a></div>
+    </div>
+  </div></div>
+</section>
+
+<section class="opt" id="o3">
+  <h2>3 · Bold Typography</h2>
+  <p>Oversized type is the hero. Yellow and black for maximum impact.</p>
+  <div class="scale"><div class="banner b3" id="b3">
+    <div class="logo">Orbitly</div>
+    <div class="inner">
+      <div class="big"><span>Go</span><span class="o">Faster</span></div>
+      <div class="side">
+        <p class="lead">The project tool that keeps up with you.</p>
+        <a class="cta">Get started</a>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<script>
+  // Preview scaling; #b1/#b2/#b3 hash shows one banner at exact size for export.
+  var h = location.hash.slice(1);
+  if (/^b[123]$/.test(h)) {
+    document.querySelectorAll('.sub,.opt > h2,.opt > p').forEach(function (e) { e.style.display = 'none'; });
+    document.body.style.padding = '0';
+    document.body.firstElementChild.style.display = 'none';
+    document.querySelector('.sub').style.display = 'none';
+    document.querySelectorAll('.opt').forEach(function (s) { s.style.margin = '0'; if (s.id !== 'o' + h[1]) s.style.display = 'none'; });
+  } else {
+    function fit() {
+      document.querySelectorAll('.scale').forEach(function (s) {
+        var k = Math.min(1, s.clientWidth / 1920);
+        var b = s.firstElementChild;
+        b.style.transform = 'scale(' + k + ')';
+        s.style.height = 600 * k + 'px';
+      });
+    }
+    addEventListener('resize', fit); fit();
+  }
+</script>
+</body>
+</html>
