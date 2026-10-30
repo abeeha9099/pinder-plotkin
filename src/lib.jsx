@@ -56,7 +56,7 @@ export function Logo({ inverted = false, className }) {
         >
           Pinder Plotkin
         </span>
-        <span className={cn('eyebrow mt-1 text-[0.6rem]', inverted ? 'text-ice' : 'text-burgundy')}>Legal Team</span>
+        <span className={cn('eyebrow mt-1', inverted ? 'text-ice' : 'text-burgundy')}>Legal Team</span>
       </span>
     </a>
   )
@@ -86,4 +86,31 @@ export function SectionHeading({ eyebrow, title, intro, align = 'left', inverted
       )}
     </div>
   )
+}
+
+const LEAD_ENDPOINT = import.meta.env.VITE_LEAD_ENDPOINT
+
+/**
+ * Sends a contact request. With VITE_LEAD_ENDPOINT set it POSTs JSON there;
+ * otherwise it opens the visitor's email app addressed to the firm.
+ */
+export async function sendLead(values) {
+  if (LEAD_ENDPOINT) {
+    const res = await fetch(LEAD_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(values),
+    })
+    if (!res.ok) throw new Error(`Request failed (${res.status})`)
+    return
+  }
+  const body = [
+    `Name: ${values.name}`,
+    `Phone: ${values.phone}`,
+    `Email: ${values.email}`,
+    `Case type: ${values.caseType}`,
+    '',
+    values.message || '',
+  ].join('\n')
+  window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent('Free consultation request')}&body=${encodeURIComponent(body)}`
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Clock, Globe, Menu, X } from 'lucide-react'
-import { NAV, Logo, cn, useLang, useT } from '../lib.jsx'
+import { Clock, Globe, Menu, Phone, X } from 'lucide-react'
+import { NAV, PHONE, PHONE_HREF, Logo, cn, useLang, useT } from '../lib.jsx'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -15,10 +15,17 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => e.key === 'Escape' && setOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
+
   return (
     <header className="sticky top-0 z-50">
       <div className="bg-navy-deep text-navy-foreground">
-        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-4 text-xs sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-4 text-sm sm:px-6 lg:px-8">
           <p className="flex items-center gap-2 text-ice">
             <Clock className="size-3.5" aria-hidden />
             <span className="hidden sm:inline">
@@ -78,6 +85,22 @@ export default function Header() {
                 {lang === 'es' ? n.es : n.en}
               </a>
             ))}
+            <div className="mt-4 grid gap-3">
+              <a
+                href={PHONE_HREF}
+                className="flex items-center justify-center gap-2 rounded-md bg-gradient-burgundy py-3.5 text-base font-bold text-primary-foreground"
+              >
+                <Phone className="size-4" aria-hidden /> {PHONE}
+              </a>
+              <button
+                type="button"
+                onClick={toggle}
+                className="flex items-center justify-center gap-2 rounded-md border border-border py-3.5 text-base font-semibold text-navy"
+              >
+                <Globe className="size-4" aria-hidden />
+                {lang === 'es' ? 'English' : 'Español'}
+              </button>
+            </div>
           </nav>
         )}
       </div>

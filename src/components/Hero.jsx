@@ -1,15 +1,9 @@
-import { ArrowRight, BadgeDollarSign, Clock, Phone, ShieldCheck, Star } from 'lucide-react'
+import { ArrowRight, Phone, Star } from 'lucide-react'
 import { PHONE, PHONE_HREF, useT } from '../lib.jsx'
-import teamImg from '../assets/pinder-plotkin-team.png'
+import teamImg from '../assets/pinder-plotkin-team.jpg'
 
 export default function Hero() {
   const t = useT()
-  const pills = [
-    { icon: ShieldCheck, label: t('No upfront fees', 'Sin pagos por adelantado') },
-    { icon: Clock, label: t('24/7 availability', 'Disponibles 24/7') },
-    { icon: BadgeDollarSign, label: t('Millions recovered', 'Millones recuperados') },
-  ]
-
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-navy text-navy-foreground">
       <div className="pointer-events-none absolute inset-0 grid-lines opacity-60" aria-hidden />
@@ -42,17 +36,15 @@ export default function Hero() {
                 '¿Lesionado en un accidente o en el trabajo? Enfrentamos a las aseguradoras para que usted se concentre en sanar, y no paga nada a menos que ganemos.',
               )}
             </p>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {pills.map(({ icon: Icon, label }) => (
-                <li
-                  key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-ice/15 bg-navy-foreground/5 px-3 py-1 text-xs font-semibold"
-                >
-                  <Icon className="size-3.5 shrink-0 text-ice" aria-hidden />
-                  {label}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-semibold">
+              <span className="flex gap-0.5 text-gold" aria-hidden>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="size-4 fill-current" />
+                ))}
+              </span>
+              <span>4.9 / 5 · 900+ {t('reviews', 'reseñas')}</span>
+              <span className="text-ice">· {t('No fee unless we win', 'Sin costo a menos que ganemos')}</span>
+            </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href="#contact"
@@ -102,7 +94,7 @@ export default function Hero() {
             </p>
           </div>
           <div className="absolute -bottom-6 right-4 hidden rounded-xl bg-burgundy p-4 text-primary-foreground shadow-elevated sm:block">
-            <p className="eyebrow text-[0.6rem] text-primary-foreground/70">
+            <p className="eyebrow text-primary-foreground/70">
               {t('Recovered for clients', 'Recuperado para clientes')}
             </p>
             <p className="font-display text-2xl font-semibold">{t('Millions', 'Millones')}</p>

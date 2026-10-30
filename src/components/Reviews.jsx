@@ -73,7 +73,7 @@ export default function Reviews() {
                   </span>
                   <span>
                     <span className="block font-bold text-navy">{r.name}</span>
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1 text-sm text-muted-foreground">
                       <BadgeCheck className="size-3.5 text-burgundy" /> Verified client · {r.case}
                     </span>
                   </span>

@@ -50,7 +50,7 @@ export default function Results() {
             </article>
           ))}
         </div>
-        <p className="mt-8 text-xs text-navy-foreground/50">
+        <p className="mt-8 text-sm text-navy-foreground/70">
           Past results do not guarantee or predict a similar outcome in any future case.
         </p>
       </div>

@@ -26,7 +26,7 @@ export default function Credentials() {
               </span>
               <span>
                 <span className="block font-display text-base font-semibold text-navy">{title}</span>
-                <span className="block text-xs text-muted-foreground">{sub}</span>
+                <span className="block text-sm text-muted-foreground">{sub}</span>
               </span>
             </li>
           ))}
